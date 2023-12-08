@@ -1,0 +1,23 @@
+<div id="TopicInput">
+    Enter the topic you want the news for
+    <input type="text" name="topic" id="" [(ngModel)]="topic" (ngModelChange)="onSearchInputChange()">
+</div>
+
+<div id="body">
+    <div *ngFor="let info of news">
+        <div class="card-box" id="card-box{{getIndex(info)}}">
+            <div class="close" id="close{{getIndex(info)}}" (click)="close( getIndex(info) )">X</div>
+            <div class="card" id="{{ getIndex(info) }}" (click)="FullSreen( getIndex(info) )" (click)="smallWindow( getIndex(info) )">
+                <img src={{info.image}} alt="">
+                <b>PublishedAt</b>
+                {{info.publishedAt}}
+                <br><br>
+                <b>Title</b>
+                {{info.title}}
+                <br><br>
+                {{info.content}}
+            </div>
+        </div>
+
+    </div>
+</div>
